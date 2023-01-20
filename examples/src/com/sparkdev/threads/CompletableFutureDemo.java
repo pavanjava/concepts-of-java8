@@ -30,7 +30,7 @@ public class CompletableFutureDemo {
             return "data from supply async";
         });
         System.out.println(stringCompletableFuture.isDone());
-        System.out.println(stringCompletableFuture.get());
+        System.out.println(stringCompletableFuture.thenApply(String::toUpperCase).get());
         System.out.println(stringCompletableFuture.isDone());
     }
 }
