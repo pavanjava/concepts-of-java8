@@ -39,13 +39,14 @@ class Service implements Runnable {
 public class ExecutorServiceDemo {
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newFixedThreadPool(5);
-        System.out.println(Instant.now());
-        for (int i = 0; i < 25; i++) {
-            executorService.execute(new Service(i));
+        try (ExecutorService executorService = Executors.newFixedThreadPool(5)) {
+            System.out.println(Instant.now());
+            for (int i = 0; i < 25; i++) {
+                executorService.execute(new Service(i));
+            }
+            // executorService.shutdown(); // will not wait for all child threads to finish
+            executorService.awaitTermination(10, TimeUnit.SECONDS); // will wait for all child threads to finish
         }
-        // executorService.shutdown(); // will not wait for all child threads to finish
-        executorService.awaitTermination(10, TimeUnit.SECONDS); // will wait for all child threads to finish
         System.out.println(Instant.now());
     }
 
