@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-public class CompletableFutureExternalAPI {
+public class CompletableFutureCallingExternalAPIUsingCallable {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(() -> {
 
