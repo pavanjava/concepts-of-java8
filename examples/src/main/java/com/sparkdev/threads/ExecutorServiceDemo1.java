@@ -36,7 +36,7 @@ class Service implements Runnable {
     }
 }
 
-public class ExecutorServiceDemo {
+public class ExecutorServiceDemo1 {
 
     public static void main(String[] args) throws InterruptedException {
         try (ExecutorService executorService = Executors.newFixedThreadPool(5)) {
