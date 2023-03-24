@@ -19,7 +19,7 @@ public class CompletableFutureCallingExternalAPIUsingCallable {
 
             try {
                 CloseableHttpClient httpClient = HttpClients.createDefault();
-                HttpGet getRequest = new HttpGet("https://dummyjson.com/products");
+                HttpGet getRequest = new HttpGet("https://dummyjson.com/products/1");
                 getRequest.addHeader("accept", "application/json");
 
                 httpResponse = httpClient.execute(getRequest);
@@ -43,7 +43,7 @@ public class CompletableFutureCallingExternalAPIUsingCallable {
             return output;
         });
         if (!completableFuture.isDone()) {
-            completableFuture.get();
+            System.out.println(completableFuture.get());
         }
 
     }
